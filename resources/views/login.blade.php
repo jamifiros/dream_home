@@ -122,7 +122,7 @@ body {
                     <button type="submit">Login</button>
                 </div>
                 <div class="register-link">
-                    <p>Don't have an account? <a href="Register.html">Register</a></p>
+                    <p>Don't have an account? <a href="{{ route('showRegform') }}">Register</a></p>
                 </div>
 
             </form>
