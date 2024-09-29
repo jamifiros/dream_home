@@ -128,5 +128,19 @@ body {
             </form>
         </div>
     </div>
+
+    <script>
+     // Handle errors and success messages
+     @if ($errors->any())
+        let errorMessages = "";
+        @foreach ($errors->all() as $error)
+            errorMessages += "{{ $error }}\n";
+        @endforeach
+        alert(errorMessages);
+    @endif
+    @if (session('success'))
+        alert("{{ session('success') }}");
+    @endif
+</script>
 </body>
 </html>

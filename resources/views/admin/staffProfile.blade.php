@@ -5,9 +5,9 @@
     <div id="view-profile">
         <div class="profile-card client-prfl">
         @if($staff->profile_image)
-            <img src="{{ asset($staff->profile_image) }}" alt="{{ $staff->user->name }}.jpg"/>
+            <img src="{{ asset($staff->profile_image) }}" class="profileimg" alt="{{ $staff->user->name }}.jpg"/>
         @else
-            <img src="{{asset('images/DpDefault.jpg')}}" alt="defaultDp.jpg">
+            <img src="{{asset('images/DpDefault.jpg')}}" class="profileimg" alt="defaultDp.jpg">
         @endif            
            <h3>{{$staff->user->name}}</h3>
            <div class="action-btns">

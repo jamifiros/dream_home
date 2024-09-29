@@ -27,4 +27,15 @@ class Client extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+        // Define the relationship with PlanRequest
+        public function planRequests()
+        {
+            return $this->hasMany(PlanRequest::class);
+        }
+
+        public function designRequests()
+        {
+            return $this->hasMany(designRequest::class);
+        }
 }

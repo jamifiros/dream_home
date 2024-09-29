@@ -170,6 +170,14 @@ button:hover, input[type="submit"]:hover {
     padding: 10px 20px;
     border-radius: 5px;
 }
+
+ .badge-cnt{
+    background-color: red;
+    color: #fff;
+    border-radius:50%;
+    padding: 2px 5px;
+    margin-left: 3px;
+}
 </style>
 <body>
     <nav>
@@ -178,6 +186,7 @@ button:hover, input[type="submit"]:hover {
         </div>
         <ul class="nav-links">
             <li><a href="{{route('admin.dashboard')}}">Home</a></li>
+            <li class="badge"><a href="{{ route('admin.viewRequests') }}">Requests</a><span class="badge-cnt">{{$pendingRequestsCount}}</span></li>
             <li><a href="{{route('admin.managePlan')}}">Plans</a></li>
             <li><a href="{{route('admin.manageDesign')}}">Designs</a></li>
             <li><a href="admin_chat.html">Chat</a></li>

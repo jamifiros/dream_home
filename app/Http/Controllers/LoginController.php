@@ -17,47 +17,80 @@ class LoginController extends Controller
      }
  
      // Handle login request
-     public function login(Request $request)
-     {
-         // Validate the request
-         $request->validate([
-             'email' => 'required|email',
-             'password' => 'required',
-         ]);
+    //  public function login(Request $request)
+    //  {
+    //      // Validate the request
+    //      $request->validate([
+    //          'email' => 'required|email',
+    //          'password' => 'required',
+    //      ]);
  
-         // Attempt to log the user in
-         $credentials = $request->only('email', 'password');
+    //      // Attempt to log the user in
+    //      $credentials = $request->only('email', 'password');
  
-         if (Auth::attempt($credentials)) {
-             // Authentication passed, get the authenticated user
-             $user = Auth::user();
+    //      if (Auth::attempt($credentials)) {
+    //          // Authentication passed, get the authenticated user
+    //          $user = Auth::user();
  
-             // Redirect based on user role
-             switch ($user->role) {
-                 case 'admin':
-                     return redirect()->intended(route('admin.dashboard'));
-                 case 'architect':
-                     return redirect()->intended(route('architect.dashboard'));
-                 case 'designer':
-                     return redirect()->intended(route('designer.dashboard'));
-                 case 'client':
-                     return redirect()->intended(route('client.dashboard'));
-                 default:
-                     Auth::logout();
-                     return redirect('/login')->withErrors(['role' => 'Unauthorized access.']);
-             }
-         }
+    //          // Redirect based on user role
+    //          switch ($user->role) {
+    //              case 'admin':
+    //                  return redirect()->intended(route('admin.dashboard'));
+    //              case 'architect':
+    //                  return redirect()->intended(route('architect.dashboard'));
+    //              case 'designer':
+    //                  return redirect()->intended(route('designer.dashboard'));
+    //              case 'client':
+    //                  return redirect()->intended(route('client.dashboard'));
+    //              default:
+    //                  Auth::logout();
+    //                  return redirect('/login')->withErrors(['role' => 'Unauthorized access.']);
+    //          }
+    //      }
  
-         // Authentication failed, redirect back with error
-         return redirect()->back()->withInput($request->only('email'))
-                                  ->withErrors(['email' => 'The provided credentials do not match our records.']);
-     }
-     // Log out user
+    //      // Authentication failed, redirect back with error
+    //      return redirect()->back()->withInput($request->only('email'))
+    //                               ->withErrors(['email' => 'The provided credentials do not match our records.']);
+    //  }
+
+    public function login(Request $request)
+    {
+        // Validate the incoming request data
+        $this->validate($request, [
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
+        // Attempt to log the user in
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+            return $this->authenticated($request, Auth::user());
+        }
+
+        // If authentication fails, return to the login form with an error message
+        return redirect()->back()
+            ->withErrors(['email' => 'Invalid credentials provided.'])
+            ->withInput($request->only('email')); // Keep the email in the input field
+    }
+
+    protected function authenticated(Request $request, $user)
+    {
+        switch ($user->role) {
+            case 'admin':
+                return redirect()->route('admin.dashboard');
+            case 'staff':
+                return redirect()->route('staff.dashboard');
+            case 'client':
+                return redirect()->route('client.dashboard');
+            default:
+                return redirect('/');
+        }
+    
+    }
      public function logout(Request $request)
      {
          Auth::logout();
-         $request->session()->invalidate();
-         $request->session()->regenerateToken();
+        //  $request->session()->invalidate();
+        //  $request->session()->regenerateToken();
  
          return redirect('/');
      }

@@ -15,4 +15,10 @@ class Design extends Model
         'estimated_cost',
         'design_image',
     ];
+
+    public function designRequests()
+    {
+        return $this->hasMany(DesignRequest::class, 'model_id');
+    }
 }
+

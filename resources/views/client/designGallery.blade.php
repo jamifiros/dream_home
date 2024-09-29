@@ -24,42 +24,16 @@
    <section id="gallery">
         <h2>Designs</h2>
         <div class="design-cards">
+            @foreach ($designs as $design)
             <div class="design-card">
-                <img src="design2.jpg" alt="Design 1">
-                <h3>Design 1</h3>
-                <p>desc</p>
+                <img src="{{asset($design->design_image)}}" alt="{{$design->name}}">
+                <h3>{{$design->design_name}}</h3>
+                <p>Type:{{$design->design_type}}</p>
+                <p>Estimated Cost:{{$design->estimated_cost}}</p>
                 <a href="#" class="view-details">View Details</a>
             </div>
-            <div class="design-card">
-                <img src="design2.jpg" alt="Design 2">
-                <h3>Design 2</h3>
-                <p>desc</p>
-                <a href="#" class="view-details">View Details</a>
-            </div>
-            <div class="design-card">
-                <img src="design2.jpg" alt="Design 3">
-                <h3>Design 3</h3>
-                <p>desc</p>
-                <a href="#" class="view-details">View Details</a>
-            </div>
-            <div class="design-card">
-                <img src="design2.jpg" alt="Design 4">
-                <h3>Design 4</h3>
-                <p>desc</p>
-                <a href="#" class="view-details">View Details</a>
-            </div>
-            <div class="design-card">
-                <img src="design2.jpg" alt="Design 5">
-                <h3>Design 5</h3>
-                <p>desc</p>
-                <a href="#" class="view-details">View Details</a>
-            </div>
-            <div class="design-card">
-                <img src="design2.jpg" alt="Design 6">
-                <h3>Design 6</h3>
-                <p>desc</p>
-                <a href="#" class="view-details">View Details</a>
-            </div>
+            @endforeach
+            
         </div>
     </section>
 

@@ -6,6 +6,7 @@ use App\Models\Architect;
 use App\Models\Designer;
 use App\Models\Client;
 use App\Models\Feedback;
+use App\Models\ProjectRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
@@ -19,7 +20,11 @@ class AdminController extends Controller
 {
     public function dashboard()
     {
-        return view('admin.dashboard');
+        // Assuming you have a ProjectRequest model
+       $pendingRequestsCount = ProjectRequest::where('status', 'pending')->count();
+    
+        // Pass the count to the view
+        return view('admin.dashboard', compact('pendingRequestsCount'));
     }
 
     public function showManagePlan(){
@@ -60,7 +65,8 @@ class AdminController extends Controller
     }
 
     public function showrequests(){
-        return view('admin.manage_requests');
+        $projectrequests = ProjectRequest::where('status', 'pending')->get();
+        return view('admin.manage_requests',compact('projectrequests'));
     }
 
     public function showClient(){
@@ -388,5 +394,6 @@ public function deleteDesign($id)
 
     return redirect()->route('admin.manageStaffs')->with('success', 'Staff registered successfully');
 }
+
 
 }

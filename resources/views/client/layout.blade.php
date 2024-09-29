@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>Client Dashboard</title>
     <link rel="stylesheet" href="{{ asset('storage/css/clientStyles.css') }}">
     <!-- <link rel="stylesheet" href="{{ asset('storage/css/customStyle.css') }}"> -->
 </head>
@@ -19,7 +19,6 @@ body {
     background-color: #1c1c1c;
     color: #f7f7f7;
 }
-
 nav {
     display: flex;
     justify-content: space-between;
@@ -35,6 +34,8 @@ nav {
 .nav-links {
     display: flex;
     list-style: none;
+    justify-content: center;
+    align-items: center;
 }
 
 .nav-links li {
@@ -51,6 +52,57 @@ nav {
     color: #b5b5b5;
 }
 
+/* Profile dropdown */
+.drp {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.drp img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.drp-cnt {
+    border-radius: 10px;
+    border-top-right-radius: 0;
+    display: none;
+    position: absolute;
+    background-color: #4b4949e0;;
+    min-width: 150px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    right: 0; /* Aligns the dropdown to the right of the profile image */
+    z-index: 1;
+    top:40px;
+    overflow: hidden;
+}
+
+.drp-cnt a {
+    display: block;
+    color: #f7f7f7;
+    padding: 10px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.drp-cnt a:hover {
+    background-color: rgba(255,255,255,0.2);
+}
+.drp .img-div{
+    padding: 5px;
+    border-radius: 50%;
+}
+.drp:hover .img-div{
+ background-color: #4b4949e0;;
+ border-bottom-left-radius: 0;
+ border-bottom-right-radius: 0;
+}
+.drp:hover .drp-cnt {
+    display: block;
+}
 footer {
     font-size: 12px;
     text-align: center;
@@ -170,6 +222,14 @@ button:hover, input[type="submit"]:hover {
     padding: 10px 20px;
     border-radius: 5px;
 }
+
+.badge-cnt{
+    background-color: red;
+    color: #fff;
+    border-radius:50%;
+    padding: 2px 5px;
+    margin-left: 3px;
+}
 </style>
 <body>
     <nav>
@@ -180,8 +240,23 @@ button:hover, input[type="submit"]:hover {
             <li><a href="{{route('client.dashboard')}}">Home</a></li>
             <li><a href="{{route('client.plansGallery')}}">Plan Gallery</a></li>
             <li><a href="{{route('client.designsGallery')}}">Design Gallery</a></li>
+            <li><a href="#">Notifications</a><span class="badge-cnt">3</span></li>
             <li><a href="#">Chat</a></li>
-            <li><a href="{{ route('logout') }}" class="logout">logout</a></li>
+            <div class="drp">
+            <li>
+                <div class="img-div">
+                   @if($client->profile_image)
+                      <img src="{{ asset($client->profile_image) }}" alt=""/>
+                   @else
+                      <img src="{{asset('images/DpDefault.jpg')}}" alt="defaultDp.jpg">
+                   @endif            
+                </div>
+            </li>
+            <div class="drp-cnt">
+                <a href="{{ route('client.viewprofile', $client->id) }}">profile Settings</a>
+                <a href="{{ route('logout') }}">logout</a>
+            </div>
+            </div>
         </ul>
     </nav>
 

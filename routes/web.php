@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ArchitectController;
 use App\Http\Controllers\DesignerController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 
 // Authentication Routes
@@ -40,19 +41,29 @@ Route::middleware(['auth', 'role:admin','prevent-back-history'])->prefix('admin'
     Route::put('/update-Staff-profile/{id}', [AdminController::class, 'updateStaff'])->name('updateStaff');
     Route::put('/changePswds-staff/{id}', [AdminController::class, 'changePswd'])->name('changePswd');
     Route::get('/delete-staff/{id}', [AdminController::class, 'deleteStaff'])->name('deleteStaff');
+    Route::get('/request-details/{id}',[ProjectController::class,'requestDetails'])->name('requestDetails');
+    Route::put('/sendBudget/{id}',[ProjectController::class,'addBudget'])->name('sendBudget');
+    
     Route::get('/feedbacks', [AdminController::class, 'viewFeedbacks'])->name('feedbacks');
  });
 
  // Client Routes
-Route::middleware(['auth', 'role:client'])->prefix('client')->name('client.')->group(function () {
+Route::middleware(['auth', 'role:client','prevent-back-history'])->prefix('client')->name('client.')->group(function () {
     Route::get('/dashboard', [ClientController::class, 'dashboard'])->name('dashboard');
     Route::get('/planGallery', [ClientController::class, 'planGallery'])->name('plansGallery');
     Route::get('/designGallery', [ClientController::class, 'designGallery'])->name('designsGallery');
-    Route::get('/filter-plans', [ClientController::class, 'filterPlans'])->name('filterPlans');
-   
+    Route::get('/profile/{id}', [ClientController::class, 'viewProfile'])->name('viewprofile');
+    Route::get('/edit-profile/{id}', [ClientController::class, 'viewEditProfile'])->name('editprofile');
+    Route::put('/update-profile/{id}', [clientController::class, 'updateProfile'])->name('updateProfile');
+    Route::put('/changePswd/{id}', [clientController::class, 'changePswd'])->name('changePswd');
+    Route::get('/project-enquiry', [ProjectController::class, 'Projectenquiry'])->name('ProjectEnquiry');
+    Route::get('/new-project-enquiry', [ProjectController::class, 'enquiry'])->name('newEnquiry');
 
-    Route::post('/request-plan', [ClientController::class, 'requestPlan'])->name('requestPlan');
-    Route::post('/request-design', [ClientController::class, 'requestDesign'])->name('requestDesign');
+    Route::get('/current-project-enquiry', [ProjectController::class, 'showEnquiry'])->name('Enquiry');
+    Route::post('/request-plan', [ProjectController::class, 'requestPlan'])->name('requestPlan');
+    Route::post('/request-design', [ProjectController::class, 'requestDesign'])->name('requestDesign');
+   
+   
     Route::get('/plan-design-details', [ClientController::class, 'planDesignDetails'])->name('planDesignDetails');
     Route::get('/gallery', [ClientController::class, 'gallery'])->name('gallery');
     Route::post('/feedback', [ClientController::class, 'submitFeedback'])->name('submitFeedback');

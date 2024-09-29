@@ -18,10 +18,15 @@
                 @foreach ($projectrequests as $projectRequest)
                     <tr>
                         <td>{{$projectRequest->id}}</td>
-                        <td>{{$projectRequest->client->user->name}}</td>
                         <td>{{$projectRequest->type}}</td>
+                        @if($projectRequest->type === 'plan')
+                        <td>Plot Size:{{$projectRequest->planRequest->plot_size}}<br>
+                            Location:{{$projectRequest->planRequest->work_location}}
+                        </td>
+                        <td>Estimated Cost:{{$projectRequest->planRequest->estimated_cost}}</td>
+                        @endif
                         <!-- <td><button class="send-budget-btn">Send Estimated Budget</button></td> -->
-                         <td><a href="{{route('admin.requestDetails', $projectRequest->id)}}" class="view-btn">View Details</a></td>
+                         <!-- <td><a href="{{route('admin.requestDetails', $projectRequest->id)}}" class="view-btn">View Details</a></td> -->
                     </tr>
                 @endforeach
             </tbody>
