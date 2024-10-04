@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('client_id')->constrained('clients')->onDelete('cascade');
             $table->foreignId('type_id');
             $table->enum('type', ['plan', 'design']);
-            $table->enum('status',['pending','send','approved','rejected'])->default('pending');
+            $table->enum('status',['pending','send','refused','approved','rejected'])->default('pending');
             $table->timestamps(); 
         });
 

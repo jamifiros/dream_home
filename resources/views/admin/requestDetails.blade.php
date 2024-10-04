@@ -7,7 +7,6 @@
         <div class="details-head">
             <h2>Request Details : {{ $projectRequest->type }} request</h2>
             <button class="send-budget-btn" style="margin-top:20px">Send Estimated Cost</button>
-
             <!-- Modal for Send Estimated Budget -->
             <div id="budget-modal" class="modal">
                 <div class="modal-content">
@@ -91,7 +90,16 @@
                     <img class="modelImage" src="{{ asset($projectRequest->designRequest->design->design_image) }}"
                         alt="model image">
                 </div>
+
             @endif
+        <div>
+            <form action="{{route('admin.terminateRequest', $projectRequest->id)}}" method="post">
+                @csrf
+                @method('PUT') 
+                <button class="delete-btn" style="margin-top:20px;padding:10px;width:100%"
+                    type="submit">terminate</button>
+            </form>
+        </div>
     </div>
 
 </div>

@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Client Dashboard</title>
     <link rel="stylesheet" href="{{ asset('storage/css/clientStyles.css') }}">
-    <!-- <link rel="stylesheet" href="{{ asset('storage/css/customStyle.css') }}"> -->
+    <link rel="stylesheet" href="{{ asset('storage/css/customStyle.css') }}">
+    <link rel="stylesheet" href="{{ asset('storage/css/view_profile.css') }}">
 </head>
 <style>
     * {
@@ -240,7 +242,6 @@ button:hover, input[type="submit"]:hover {
             <li><a href="{{route('client.dashboard')}}">Home</a></li>
             <li><a href="{{route('client.plansGallery')}}">Plan Gallery</a></li>
             <li><a href="{{route('client.designsGallery')}}">Design Gallery</a></li>
-            <li><a href="#">Notifications</a><span class="badge-cnt">3</span></li>
             <li><a href="#">Chat</a></li>
             <div class="drp">
             <li>

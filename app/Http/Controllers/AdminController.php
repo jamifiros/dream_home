@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\Plan;
+use App\Models\Projects;
 use App\Models\Design;
 use App\Models\Staff;
 use Illuminate\Support\Facades\Log;
@@ -27,6 +28,9 @@ class AdminController extends Controller
         return view('admin.dashboard', compact('pendingRequestsCount'));
     }
 
+    public function showManageGallery(){
+        return view('admin.manage_gallery');
+    }
     public function showManagePlan(){
         $plans = Plan::all();
         return view('admin.manage_plans',compact('plans'));
@@ -60,24 +64,21 @@ class AdminController extends Controller
         return view('admin.manage_clients', compact('clients'));
     }
 
-    public function showprojects(){
-        return view('admin.manage_projects');
+    public function showRequests(){
+        $projectRequests = ProjectRequest::where('status', 'pending')
+                                         ->orWhere('status', 'refused')
+                                         ->get();
+        return view('admin.manage_requests', compact('projectRequests'));
     }
-
-    public function showrequests(){
-        $projectrequests = ProjectRequest::where('status', 'pending')->get();
-        return view('admin.manage_requests',compact('projectrequests'));
-    }
-
+    
     public function showClient(){
         return view('admin.clientProfile');
     }
 
     public function viewFeedbacks()
     {
-        // $feedbacks = Feedback::all();
-        // return view('admin.feedbacks', compact('feedbacks'));
-        return view('admin.feedback');
+        $feedbacks = Feedback::all();
+        return view('admin.feedback', compact('feedbacks'));
     }
 
     public function createPlan(Request $request){
@@ -89,6 +90,7 @@ class AdminController extends Controller
          'no_bhk' => 'required|numeric',
          'no_bathroom' => 'required|numeric', // Change this to match the form field
          'no_floor' => 'required|numeric',
+         'sqft' =>'required|numeric',
          'estimated_cost' => 'required|numeric'
         ]);
 
@@ -102,6 +104,7 @@ class AdminController extends Controller
       $plan->no_bhk = $request->no_bhk;
       $plan->no_bathroom = $request->no_bathroom; // Fix the field name here
       $plan->no_floor = $request->no_floor;
+      $plan->sqft = $request->sqft;
       $plan->estimated_cost = $request->estimated_cost;
       $plan->plan_image = 'images/plans/' . $imageName;
 
@@ -141,9 +144,9 @@ class AdminController extends Controller
     
         // Check if a new image is uploaded
         if ($request->hasFile('plan_image')) {
-            // Upload the new image
-            $imageName = $request->plan_image->getClientOriginalName();
-            $request->plan_image->move(public_path('images/'), $imageName);
+            $imageName = time() . '.' . $request->plan_image->extension();  // Fix the image field name
+            $request->plan_image->move(public_path('images/plans/'), $imageName);
+         
             
             // Update the image path
             $plan->plan_image = 'images/plans/' . $imageName;

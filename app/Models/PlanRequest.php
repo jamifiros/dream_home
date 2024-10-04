@@ -33,6 +33,11 @@ class PlanRequest extends Model
     {
         return $this->belongsTo(Plan::class, 'model_id');
     }
+
+    public function project()
+    {
+        return $this->belongsTo(project::class);
+    }
 }
 
 

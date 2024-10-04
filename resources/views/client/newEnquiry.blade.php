@@ -351,7 +351,7 @@
                             <button type="button" class="choose-plan-btn" id="openModal">Select</button>
 
                             <label for="model">Selected Plan model:</label>
-                            <input type="text" name="model_id" placeholder="select a plan model..." readonly>
+                            <input type="text" name="model_id" placeholder="select a plan model..." readonly required>
                         </div>
                     </div>
                     <!-- Requirements and Additional Notes -->
@@ -391,12 +391,12 @@
                     <div class="form-columns" style="display:flex; justify-content:space-between;">
                         <div class="form-group">
                             <label for="location">work location</label>
-                            <input type="text" name="work_location" placeholder="work location here..">
+                            <input type="text" name="work_location" placeholder="work location here.." required>
                         </div>
                         <div class="form-group">
                             <button type="button" class="choose-design-btn" id="openDesignModal">Select</button>
                             <label for="model">Selected Design model:</label>
-                            <input type="text" name="design_model_id" placeholder="select design model..." readonly>
+                            <input type="text" name="design_model_id" placeholder="select design model..." readonly required>
                         </div>
                     </div>
 

@@ -10,15 +10,16 @@
                 <p>Manage user accounts and permissions.</p>
                 <a href="{{ route('admin.manageUsers') }}" class="view-details">Manage Users</a>
             </div>
+
             <div class="admin-section">
-                <h3>Manage Plans</h3>
-                <p>View, edit, and delete plans from the Plan gallery.</p>
-                <a href="{{ route('admin.managePlan') }}" class="view-details">Manage Plans</a>
+                <h3>Ongoing Projects</h3>
+                <p>Manage and view details of ongoing projects.</p>
+                <a href="{{ route('admin.viewProjects') }}" class="view-details">View Projects</a>
             </div>
             <div class="admin-section">
-                <h3>Manage Designs</h3>
-                <p>View, edit, and delete designs from the Design gallery.</p>
-                <a href="{{ route('admin.manageDesign') }}" class="view-details">Manage Designs</a>
+                <h3>Manage Plan gallery/ Design gallery</h3>
+                <p>View, edit, and delete plans/designs from the gallery.</p>
+                <a href="{{ route('admin.manageGallery') }}" class="view-details">Manage Designs</a>
             </div>
             <div class="admin-section">
                 <h3>View Feedback / Ratings</h3>

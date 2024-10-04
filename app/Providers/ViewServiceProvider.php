@@ -17,11 +17,14 @@ class ViewServiceProvider extends ServiceProvider
     {
         // Attach data to all views extending layout.blade.php
         View::composer('admin.layout', function ($view) {
-            $pendingRequestsCount = ProjectRequest::where('status', 'pending')->count();
+            $pendingRequestsCount = ProjectRequest::whereIn('status', ['pending', 'refused'])->count();
             $view->with('pendingRequestsCount', $pendingRequestsCount);
         });
+
     }
 
+
+    
     /**
      * Register any application services.
      *

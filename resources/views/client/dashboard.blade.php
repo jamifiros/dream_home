@@ -7,17 +7,17 @@
             <div class="admin-section">
                 <h3>View Projects</h3>
                 <p>Check your ongoing and completed projects...</p>
-                <a href="view_projects.html" class="view-details">View Projects</a>
+                <a href="{{route('client.projects')}}" class="view-details">View Projects</a>
             </div>
             <div class="admin-section">
                 <h3>View Bill</h3>
                 <p>View your current and past bills...</p>
-                <a href="view_bills.html" class="view-details">View Bill</a>
+                <a href="{{route('client.viewBills')}}" class="view-details">View Bill</a>
             </div>
             <div class="admin-section">
                 <h3>Project Enquiry</h3>
                 <p>Details about the project enquiry can be added here...</p>
-                <a href="{{route('client.ProjectEnquiry')}}" class="view-details">Edit Profile</a>
+                <a href="{{route('client.ProjectEnquiry')}}" class="view-details">view</a>
             </div>            
             <div class="admin-section">
                 <h3>Chat</h3>

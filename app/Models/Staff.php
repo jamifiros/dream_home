@@ -18,10 +18,16 @@ class Staff extends Model
         'post',
     ];
 
+
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id'); // Adjust if your foreign key is different
     }
 
-
+     // One-to-Many relationship with Project model
+       // One-to-Many relationship with Project model
+       public function projects()
+       {
+           return $this->hasMany(Project::class, 'assigned_staff_id');
+       }
 }

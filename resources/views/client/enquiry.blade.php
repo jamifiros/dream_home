@@ -10,7 +10,7 @@
             <div class="admin-section">
                 <h3>New Project Enquiry</h3>
                 <p>Details about the project enquiry can be added here...</p>
-                <a href="{{route('client.newEnquiry')}}" class="view-details">Edit Profile</a>
+                <a href="{{route('client.newEnquiry')}}" class="view-details">Add</a>
             </div>            
 
         </div>

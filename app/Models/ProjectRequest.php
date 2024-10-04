@@ -30,5 +30,10 @@ class ProjectRequest extends Model
     {
         return $this->hasOne(DesignRequest::class, 'id', 'type_id');
     }
+
+    public function project()
+    {
+        return $this->hasOne(Project::class);
+    }
 }
 

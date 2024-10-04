@@ -6,6 +6,7 @@
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="{{ asset('storage/css/view_profile.css') }}">
     <link rel="stylesheet" href="{{ asset('storage/css/customStyle.css') }}">
+
 </head>
 <style>
     * {
@@ -187,6 +188,7 @@ button:hover, input[type="submit"]:hover {
         <ul class="nav-links">
             <li><a href="{{route('admin.dashboard')}}">Home</a></li>
             <li class="badge"><a href="{{ route('admin.viewRequests') }}">Requests</a><span class="badge-cnt">{{$pendingRequestsCount}}</span></li>
+            <li><a href="{{route('admin.viewProjects')}}">Projects</a></li>
             <li><a href="{{route('admin.managePlan')}}">Plans</a></li>
             <li><a href="{{route('admin.manageDesign')}}">Designs</a></li>
             <li><a href="admin_chat.html">Chat</a></li>

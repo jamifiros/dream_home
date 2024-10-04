@@ -85,7 +85,7 @@ a:hover {
 </head>
 <body>
     <div class="form-div">
-        <form id="editPlanForm" method="POST" action="{{ route('admin.updatePlan', $plan->plan_id) }}" enctype="multipart/form-data">
+        <form id="editPlanForm" method="POST" action="{{ route('admin.updatePlan', $plan->id) }}" enctype="multipart/form-data">
             @csrf
             @method('PUT') 
             <span class="close" onclick="history.back()" >&times;</span>

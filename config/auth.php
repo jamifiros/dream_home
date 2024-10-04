@@ -40,6 +40,22 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
+        'client' => [
+            'driver' => 'session',
+            'provider' => 'clients',
+        ],
+        'architect' => [
+            'driver' => 'session',
+            'provider' => 'staff',
+        ],
+        'designer' => [
+            'driver' => 'session',
+            'provider' => 'staff',
+        ],
     ],
 
     /*
@@ -64,6 +80,21 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
+        'admins' => [
+        'driver' => 'eloquent',
+        'model' => App\Models\User::class,
+        'where' => ['role' => 'admin'], // Filtering for admins
+    ],
+    'clients' => [
+        'driver' => 'eloquent',
+        'model' => App\Models\User::class,
+        'where' => ['role' => 'client'], // Filtering for clients
+    ],
+    'staff' => [
+        'driver' => 'eloquent',
+        'model' => App\Models\User::class,
+        'whereIn' => ['role' => ['architect', 'designer']], // For both architects and designers
+    ],
 
         // 'users' => [
         //     'driver' => 'database',

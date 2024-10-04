@@ -2,54 +2,6 @@
 
 @section('content')
 
-    <section id="manage-designs">
-        <h2>Manage Custom Designs</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Custom Design ID</th>
-                    <th>Client ID</th>
-                    <th>Requirements</th>
-                    <th>Additional Notes</th>
-                    <th>Payment</th>
-                    <th>Design Attachments</th>
-                    <th>Design ID</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>2</td>
-                    <td>201</td>
-                    <td>Modern design with glass facades</td>
-                    <td>Requires approval for balcony extension</td>
-                    <td>Paid</td>
-                    <td><a href="design.jpg" target="_blank">View</a></td>
-                    <td>7</td>
-                    <td>
-                        <a href="#" class="edit-btn">Edit</a> | 
-                        <a href="#" class="delete-btn">Delete</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>202</td>
-                    <td>Classy design with Wooden accents</td>
-                    <td>Requires approval for floor extension</td>
-                    <td>Not Paid</td>
-                    <td><a href="design.jpg" target="_blank">View</a></td>
-                    <td>7</td>
-                    <td>
-                        <a href="#" class="edit-btn">Edit</a> | 
-                        <a href="#" class="delete-btn">Delete</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
-
-    <div class="spacer"></div>
-
     <section id="manage-design-gallery">
         <h2>Manage Design Gallery</h2>
         <div class="gallery-actions">

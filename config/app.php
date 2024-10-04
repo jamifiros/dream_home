@@ -186,6 +186,6 @@ return [
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 
-
+    'Carbon' => 'Carbon\Carbon',
 
 ];
