@@ -104,10 +104,7 @@ a:hover {
                         <option value="" disabled>Select type</option>
                         <option value="modern" {{ $plan->plan_type == 'modern' ? 'selected' : '' }}>Modern</option>
                         <option value="traditional" {{ $plan->plan_type == 'traditional' ? 'selected' : '' }}>Traditional</option>
-                        <option value="minimalist" {{ $plan->plan_type == 'minimalist' ? 'selected' : '' }}>Minimalist</option>
                         <option value="luxuary" {{ $plan->plan_type == 'luxuary' ? 'selected' : '' }}>Luxuary</option>
-                        <option value="villa" {{ $plan->plan_type == 'villa' ? 'selected' : '' }}>Villa</option>
-                        <option value="eco friendly" {{ $plan->plan_type == 'eco friendly' ? 'selected' : '' }}>Eco Friendly</option>
                     </select>
                 </div>
                 <div class="form-label">

@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="{{ asset('storage/css/clientStyles.css') }}">
     <link rel="stylesheet" href="{{ asset('storage/css/customStyle.css') }}">
     <link rel="stylesheet" href="{{ asset('storage/css/view_profile.css') }}">
+    <link rel="stylesheet" href="{{ asset('storage/css/chatStyles.css') }}">
+
 </head>
 <style>
     * {
@@ -24,13 +26,24 @@ body {
 nav {
     display: flex;
     justify-content: space-between;
+    align-content: center;
     align-items: center;
     background-color: #343a40;
     padding: 15px 30px;
 }
 
+.title {
+    display: flex; /* Enable flexbox for the title */
+    align-items: center; /* Vertically center the title */
+    height: 100%; /* Ensure it takes the full height of the nav */
+    justify-content: center; /* Center horizontally */
+}
+
+
 .title h1 {
     color: #ffffff;
+    margin: 0; /* Remove default margin to avoid extra space */
+    line-height: 1.2; /* Adjust line-height for spacing within the title */
 }
 
 .nav-links {
@@ -242,7 +255,7 @@ button:hover, input[type="submit"]:hover {
             <li><a href="{{route('client.dashboard')}}">Home</a></li>
             <li><a href="{{route('client.plansGallery')}}">Plan Gallery</a></li>
             <li><a href="{{route('client.designsGallery')}}">Design Gallery</a></li>
-            <li><a href="#">Chat</a></li>
+            <li><a href="{{route('client.chat')}}">Chat</a></li>
             <div class="drp">
             <li>
                 <div class="img-div">

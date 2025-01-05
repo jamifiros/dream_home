@@ -6,7 +6,7 @@
     <title>Architect Dashboard</title>
     <link rel="stylesheet" href="{{ asset('storage/css/view_profile.css') }}">
     <link rel="stylesheet" href="{{ asset('storage/css/customStyle.css') }}">
-
+    <link rel="stylesheet" href="{{ asset('storage/css/chatStyles.css') }}">
 </head>
 <style>
     * {
@@ -28,8 +28,18 @@ nav {
     padding: 15px 30px;
 }
 
+.title {
+    display: flex; /* Enable flexbox for the title */
+    align-items: center; /* Vertically center the title */
+    height: 100%; /* Ensure it takes the full height of the nav */
+    justify-content: center; /* Center horizontally */
+}
+
+
 .title h1 {
     color: #ffffff;
+    margin: 0; /* Remove default margin to avoid extra space */
+    line-height: 1.2; /* Adjust line-height for spacing within the title */
 }
 
 .nav-links {
@@ -345,7 +355,7 @@ button:hover, input[type="submit"]:hover {
         <ul class="nav-links">
             <li><a href="{{route('architect.dashboard')}}">Home</a></li>
             <li><a href="{{route('architect.planGallery')}}">Plan Gallery</a></li>
-            <li><a href="#">Chat</a></li>
+            <li><a href="{{route('architect.chat')}}">Chat</a></li>
             <div class="drp">
             <li>
                 <div class="img-div">

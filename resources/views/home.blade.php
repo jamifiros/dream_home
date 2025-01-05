@@ -61,6 +61,7 @@
             <div class="arc-gallery">
             @foreach ($designs as $design)
                 <img src="{{asset($design->design_image)}}" alt="">
+                
             @endforeach
             </div>
         </div>
@@ -76,7 +77,7 @@
     <section id="contact">
         <div class="contact">
             <h1>Contact</h1>
-            <p>Reach us at our email: xxxxxxx@gmail.com</p>
+            <p>Reach us at our email: customhomebuilder@gmail.com</p>
         </div>
     </section>
     

@@ -261,7 +261,7 @@ class ProjectController extends Controller
 
     public function assignStaff(Request $request)
     {
-        $project = Project::find($request->projct_id);
+        $project = Project::find($request->project_id);
     
     
         if ($project) {
@@ -295,9 +295,14 @@ class ProjectController extends Controller
         return redirect()->route('admin.viewProjects')->with('success', 'Project has been successfully terminated.');
     }
     
+    // public function viewBill($id){
+    //     $project = Project::find($id);
 
+    //     return view('admin.bill',compact('project'));        
 
-    public function viewBill(id)
+    // }
+
+    public function viewBill($id)
 {
     $project = Project::find($id);
 

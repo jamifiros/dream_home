@@ -6,6 +6,7 @@ use App\Models\Architect;
 use App\Models\Designer;
 use App\Models\Client;
 use App\Models\Feedback;
+use App\Models\Project;
 use App\Models\ProjectRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -312,13 +313,17 @@ public function deleteDesign($id)
     public function viewstaffprofile($id)
     {
         $staff = Staff::with('user')->find($id);
+        $projects = Project::with(['Projectrequest'])
+        ->where('assigned_staff_id', $staff->id)
+        ->get();
+
     
         if (!$staff) {
             // Handle the case where the staff member is not found
             return redirect()->route('admin.manageStaffs')->with('error', 'Staff not found.');
         }
     
-        return view('admin.staffProfile', compact('staff'));
+        return view('admin.staffProfile', compact('staff','projects'));
     }
     
  

@@ -130,7 +130,7 @@
             <thead>
                 <tr>
                     <th>Client ID</th>
-                    <th>Name</th>
+                    <th>Staff Name</th>
                     <th>Type</th>
                     <th>Estimated Cost</th>
                     <th>Actions</th>
@@ -140,7 +140,7 @@
                 @foreach($projects as $project)
                     <tr>
                         <td>{{ $project->client_id }}</td>
-                        <td>{{ $project->client->user->name }}</td> 
+                        <td>{{ $project->staff->user->name}}</td> 
                         <td>{{ $project->projectRequest->type }}</td> 
                         @if ($project->projectRequest->type === 'plan')
                             <td>{{ $project->projectRequest->planRequest->estimated_cost }}</td>
@@ -161,7 +161,7 @@
             <thead>
                 <tr>
                     <th>Client ID</th>
-                    <th>Name</th>
+                    <th>Staff Name</th>
                     <th>Type</th>
                     <th>Estimated Cost</th>
                     <th>Actions</th>
@@ -171,7 +171,7 @@
                 @foreach($onprogress as $project)
                     <tr>
                         <td>{{ $project->client_id }}</td>
-                        <td>{{ $project->client->user->name }}</td>
+                        <td>{{$project->staff->user->name}}</td>
                         <td>{{ $project->projectRequest->type }}</td>
                         @if ($project->projectRequest->type === 'plan')
                             <td>{{ $project->projectRequest->planRequest->estimated_cost }}</td>
@@ -194,7 +194,7 @@
             <thead>
                 <tr>
                     <th>Client ID</th>
-                    <th>Name</th>
+                    <th>Staff Name</th>
                     <th>Type</th>
                     <th>Cost</th>
                     <th>Payment Status</th>
@@ -205,7 +205,7 @@
                 @foreach($completed as $project)
                     <tr>
                         <td>{{ $project->client_id }}</td>
-                        <td>{{ $project->client->user->name }}</td>
+                        <td>{{ $project->staff->user->name}}</td>
                         <td>{{ $project->projectRequest->type }}</td>
                         @if ($project->projectRequest->type === 'plan')
                             <td>{{ $project->projectRequest->planRequest->estimated_cost }}</td>

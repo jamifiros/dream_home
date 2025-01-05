@@ -22,7 +22,7 @@
             <div class="designer-section">
                 <h3>Chat</h3>
                 <p>Engage in conversations with Admin, Architect, and Clients.</p>
-                <a href="#" class="view-details">Go to Chat</a>
+                <a href="{{route('designer.chat')}}" class="view-details">Go to Chat</a>
             </div>
         </div>
     </section>

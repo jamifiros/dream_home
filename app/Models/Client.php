@@ -40,7 +40,7 @@ class Client extends Model
     }
 
     // One-to-Many relationship with Project model
-    public function project()
+    public function projects()
     {
         return $this->hasMany(Project::class);
     }

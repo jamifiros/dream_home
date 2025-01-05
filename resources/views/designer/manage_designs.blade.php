@@ -26,8 +26,9 @@
                     <label for="type">Type</label>
                     <select name="design_type" id="type" >
                         <option disabledb selected>--select type--</option>
-                        <option value="type1">Type1</option>
-                        <option value="type2">Type2</option>
+                        <option value="modern">Modern</option>
+                            <option value="traditional">traditional</option>
+                            <option value="luxuary">luxuary</option>
                     </select>
                 </div>
             </div>

@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>designer Dashboard</title>
+    <title>Designer Dashboard</title>
     <link rel="stylesheet" href="{{ asset('storage/css/view_profile.css') }}">
     <link rel="stylesheet" href="{{ asset('storage/css/customStyle.css') }}">
-
+    <link rel="stylesheet" href="{{ asset('storage/css/chatStyles.css') }}">
 </head>
 <style>
     * {
@@ -28,8 +28,18 @@ nav {
     padding: 15px 30px;
 }
 
+.title {
+    display: flex; /* Enable flexbox for the title */
+    align-items: center; /* Vertically center the title */
+    height: 100%; /* Ensure it takes the full height of the nav */
+    justify-content: center; /* Center horizontally */
+}
+
+
 .title h1 {
     color: #ffffff;
+    margin: 0; /* Remove default margin to avoid extra space */
+    line-height: 1.2; /* Adjust line-height for spacing within the title */
 }
 
 .nav-links {
@@ -340,12 +350,12 @@ button:hover, input[type="submit"]:hover {
 
     <nav>
         <div class="title">
-            <h1>designer Dashboard</h1>
+            <h1>Designer Dashboard</h1>
         </div>
         <ul class="nav-links">
             <li><a href="{{route('designer.dashboard')}}">Home</a></li>
             <li><a href="{{route('designer.designGallery')}}">design Gallery</a></li>
-            <li><a href="#">Chat</a></li>
+            <li><a href="{{route('designer.chat')}}">Chat</a></li>
             <div class="drp">
             <li>
                 <div class="img-div">

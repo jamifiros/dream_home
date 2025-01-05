@@ -29,10 +29,7 @@
                             <option disabledb selected>--select type--</option>
                             <option value="modern">Modern</option>
                             <option value="traditional">traditional</option>
-                            <option value="minimalist">minimalist</option>
                             <option value="luxuary">luxuary</option>
-                            <option value="villa">villa</option>
-                            <option value="eco friendly">eco friendly</option>
                         </select>
                     </div>
                     <div class="form-label">

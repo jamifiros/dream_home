@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="{{ asset('storage/css/view_profile.css') }}">
     <link rel="stylesheet" href="{{ asset('storage/css/customStyle.css') }}">
-
+    <link rel="stylesheet" href="{{ asset('storage/css/chatStyles.css') }}">
 </head>
 <style>
     * {
@@ -29,8 +31,18 @@ nav {
     padding: 15px 30px;
 }
 
+.title {
+    display: flex; /* Enable flexbox for the title */
+    align-items: center; /* Vertically center the title */
+    height: 100%; /* Ensure it takes the full height of the nav */
+    justify-content: center; /* Center horizontally */
+}
+
+
 .title h1 {
     color: #ffffff;
+    margin: 0; /* Remove default margin to avoid extra space */
+    line-height: 1.2; /* Adjust line-height for spacing within the title */
 }
 
 .nav-links {
@@ -191,7 +203,7 @@ button:hover, input[type="submit"]:hover {
             <li><a href="{{route('admin.viewProjects')}}">Projects</a></li>
             <li><a href="{{route('admin.managePlan')}}">Plans</a></li>
             <li><a href="{{route('admin.manageDesign')}}">Designs</a></li>
-            <li><a href="admin_chat.html">Chat</a></li>
+            <li><a href="{{route('admin.chat')}}">Chat</a></li>
             <li><a href="{{ route('logout') }}" class="logout">logout</a></li>
         </ul>
     </nav>
