@@ -4,7 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProjectController;
-use App\Models\Client;
+use App\Http\Controllers\ChatController;
 use Illuminate\Support\Facades\Route;
 
 // Authentication Routes
@@ -51,6 +51,10 @@ Route::middleware(['auth:admin', 'role:admin','prevent-back-history'])->prefix('
     Route::get('/project/view-bill/{id}',[ProjectController::class,'viewBill'])->name('viewBill');
     
     Route::get('/feedbacks', [AdminController::class, 'viewFeedbacks'])->name('feedbacks');
+    Route::get('/chat', [ChatController::class, 'chat'])->name('chat');
+    Route::post('/send-message', [ChatController::class, 'sendMessage']);
+    Route::get('/fetch-messages/{id}', [ChatController::class, 'fetchMessages']);
+    
  });
 
  // Client Routes
@@ -79,6 +83,10 @@ Route::middleware(['auth:client', 'role:client','prevent-back-history'])->prefix
 
     Route::get('/plan-design-details', [ClientController::class, 'planDesignDetails'])->name('planDesignDetails');
     Route::get('/gallery', [ClientController::class, 'gallery'])->name('gallery');
+    Route::get('/chat', [ChatController::class, 'chat'])->name('chat');
+    Route::post('/send-message', [ChatController::class, 'sendMessage']);
+    Route::get('/fetch-messages/{id}', [ChatController::class, 'fetchMessages']);
+   
 });
 
 
@@ -94,6 +102,10 @@ Route::middleware(['auth:architect', 'role:architect','prevent-back-history'])->
     Route::put('/update/project/{id}', [StaffController::class, 'updateProject'])->name('updateProject');
     Route::get('/project/details/{id}', [StaffController::class, 'projectDetails'])->name('projectDetails');
     Route::get('/viewProfile', [StaffController::class, 'viewProfile'])->name('viewProfile');
+    Route::get('/chat', [ChatController::class, 'chat'])->name('chat');
+    Route::post('/send-message', [ChatController::class, 'sendMessage']);
+    Route::get('/fetch-messages/{id}', [ChatController::class, 'fetchMessages']);
+   
 });
 
 // Designer Routes
@@ -108,5 +120,8 @@ Route::middleware(['auth:designer', 'role:designer'])->prefix('designer')->name(
     Route::put('/update/project/{id}', [StaffController::class, 'updateProject'])->name('updateProject');
     Route::get('/project/details/{id}', [StaffController::class, 'projectDetails'])->name('projectDetails');
     Route::get('/viewProfile', [StaffController::class, 'viewProfile'])->name('viewProfile');
+    Route::get('/chat', [ChatController::class, 'chat'])->name('chat');
+    Route::post('/send-message', [ChatController::class, 'sendMessage']);
+    Route::get('/fetch-messages/{id}', [ChatController::class, 'fetchMessages']);
+   
 });
-

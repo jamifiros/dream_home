@@ -36,95 +36,24 @@
                         <tr>
                             <th>ID</th>
                             <th>Type</th>
-                            <th>Assigned Staff</th>
-                            <th>Requirements</th>
                             <th>Cost</th>
                             <th>Status</th>
                             <th>Bill</th>
                         </tr>
                     </thead>
                     <tbody>
+
+                    @foreach ($projects as $project)
                         <tr>
-                            <td>1</td>
-                            <td>Plan</td>
-                            <td>Architect</td>
-                            <td>3 BHK House</td>
-                            <td>$200,000</td>
-                            <td>Completed</td>
-                            <td><button class="view-bill">View Bill</button></td>
+                            <td>{{$project->id}}</td>
+                            <td>{{$project->Projectrequest->type}}</td>
+                            <td>{{$project->Projectrequest->estimated_cost}}</td>
+                            <td>{{$project->status}}</td>
+                            <td><a href="{{route('admin.viewBill',$project->id)}}" class="view-btn">View Bill</a></td>
                         </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Plan</td>
-                            <td>Architect</td>
-                            <td>3 BHK House</td>
-                            <td>$200,000</td>
-                            <td>Completed</td>
-                            <td><button class="view-bill">View Bill</button></td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Plan</td>
-                            <td>Architect</td>
-                            <td>3 BHK House</td>
-                            <td>$200,000</td>
-                            <td>Completed</td>
-                            <td><button class="view-bill">View Bill</button></td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Plan</td>
-                            <td>Architect</td>
-                            <td>3 BHK House</td>
-                            <td>$200,000</td>
-                            <td>Completed</td>
-                            <td><button class="view-bill">View Bill</button></td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Plan</td>
-                            <td>Architect</td>
-                            <td>3 BHK House</td>
-                            <td>$200,000</td>
-                            <td>Completed</td>
-                            <td><button class="view-bill">View Bill</button></td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Plan</td>
-                            <td>Architect</td>
-                            <td>3 BHK House</td>
-                            <td>$200,000</td>
-                            <td>Completed</td>
-                            <td><button class="view-bill">View Bill</button></td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Plan</td>
-                            <td>Architect</td>
-                            <td>3 BHK House</td>
-                            <td>$200,000</td>
-                            <td>Completed</td>
-                            <td><button class="view-bill">View Bill</button></td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Plan</td>
-                            <td>Architect</td>
-                            <td>3 BHK House</td>
-                            <td>$200,000</td>
-                            <td>Completed</td>
-                            <td><button class="view-bill">View Bill</button></td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Plan</td>
-                            <td>Architect</td>
-                            <td>3 BHK House</td>
-                            <td>$200,000</td>
-                            <td>Completed</td>
-                            <td><button class="view-bill">View Bill</button></td>
-                        </tr>
+                    @endforeach
+                      
+
 
                     </tbody>
                 </table>

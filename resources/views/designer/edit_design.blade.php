@@ -34,10 +34,9 @@
                         <label for="type">Type</label>
                         <select name="design_type" id="type">
                             <option disabled selected>--select type--</option>
-                            <option value="type1" {{ $design->design_type == 'type1' ? 'selected' : '' }}>Type1</option>
-                            <option value="type2" {{ $design->design_type == 'type2' ? 'selected' : '' }}>Type2</option>
-                            <option value="type3" {{ $design->design_type == 'type3' ? 'selected' : '' }}>Type3</option>
-                            <option value="type4" {{ $design->design_type == 'type4' ? 'selected' : '' }}>Type4</option>
+                            <option value="modern" {{ $design->design_type == 'modern' ? 'selected' : '' }}>modern</option>
+                            <option value="luxury" {{ $design->design_type == 'luxury' ? 'selected' : '' }}>luxury</option>
+                            <option value="traditional" {{ $design->design_type == 'traditional' ? 'selected' : '' }}>traditional</option>
                         </select>
                     </div>
                 </div>
